@@ -11,7 +11,7 @@ def animal_recognizer(t):
 
     if t == "video":
         # 视频输入
-        cap = cv.VideoCapture(d + "/Video/test.mp4")
+        cap = cv.VideoCapture(d + "/Video/boar.mp4")
         cap.set(cv.CAP_PROP_FPS, 30)
     elif t == "camera":
         # 摄像头输入
@@ -24,7 +24,7 @@ def animal_recognizer(t):
 
 
     # 载入训练完成的模型
-    model = YOLO(d + "/runs/detect/default/weights/best.pt")
+    model = YOLO(d + "/model/trail.pt")
 
     # 获取视频的宽和高
     width = int(cap.get(cv.CAP_PROP_FRAME_WIDTH))
@@ -101,5 +101,5 @@ def animal_recognizer(t):
 
 
 if __name__ == '__main__':
-    # animal_recognizer("video")
-    animal_recognizer("camera")
+    animal_recognizer("video")
+    # animal_recognizer("camera")
